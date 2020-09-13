@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <select  id="pwr" >
+            <option value="...">...</option>
+            <option value="HP">HP</option>
+            <option value="KW">KW</option>
+            <option value="A">A</option>
+
+            
+        </select>
+        <input type="text" id="text1"><br><br><br>
+        <select  id="pwr1" >
+            <option value="...">...</option>
+            <option value="HP">HP</option>
+            <option value="KW">KW</option>
+            <option value="A">A</option>
+
+            
+        </select>
+        <input type="text" id="result"><br><br><br>
+        <button onclick="find()">Calculate</button>
+
+        <span class="o"></span>
+        <script type="text/javascript">
+            function find(){
+                var e = document.getElementById("pwr");
+                var s1 = e.options[e.selectedIndex].value;
+                var e1=document.getElementById("pwr1");
+                var s=e1.options[e1.selectedIndex].value;
+                if(s==s1 && s!="..."){
+                    document.getElementById("result").value=text1.value;
+                }
+                else if(s1=="HP" && s=="KW"){
+                    document.getElementById("result").value=text1.value*746;
+                }
+                else if(s1=="HP" && s=="A"){
+                    document.getElementById("result").value=text1.value*1.32;
+                }
+                else if(s1=="KW" && s=="HP"){
+                    document.getElementById("result").value=text1.value/746;
+                }
+                else if(s1=="KW" && s=="A"){
+                    document.getElementById("result").value=(text1.value/746)*1.32;
+                }
+                else if(s1=="A" && s=="HP"){
+                    document.getElementById("result").value=text1.value/1.32;
+                }
+                else if(s1=="A" && s=="KW"){
+                    document.getElementById("result").value=(text1.value/1.32)*746;
+                }
+                else{
+                    alert("please select from drop down menu")
+                }
+            }
+        </script>
+    </body>
+</html>
